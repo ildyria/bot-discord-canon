@@ -1,3 +1,5 @@
+#!
+
 import discord
 import asyncio
 import os.path
@@ -58,4 +60,4 @@ if __name__ == "__main__":
 # await message.channel.send(id_user)
 
 # give users a link to invite this bot to their server embed.add_field(name="Invite", value="[Invite link](
-# https://discordapp.com/api/oauth2/authorize?client_id=456847303479787520&permissions=256064&scope=bot)")
+# https://discord.com/api/oauth2/authorize?client_id=772901093645484086&permissions=126016&scope=bot)")

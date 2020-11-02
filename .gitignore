@@ -1,0 +1,8 @@
+.key
+*.tar
+.idea/*
+__pycache__/
+venv/*
+*.json
+.*.swp
+nohup.out

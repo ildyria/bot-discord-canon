@@ -1,13 +1,8 @@
-#!
-
 import discord
 import asyncio
 import os.path
 import random
 import re
-
-result = re.match(pattern, string)
-
 
 async def print_sad(message):
     await message.channel.send(':disappointed_relieved:')

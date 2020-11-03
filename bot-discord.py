@@ -10,7 +10,7 @@ async def print_sad(message):
 
 def rdm_blob():
     # blobs = [':blobcool:', ':blobaww:',':blobfistbumpR:',':blobmoustache:',':blobsmileopenmouth:',':blobpoliceangry:',':blobhammer:',':fire_engine:', ':googlefire:']
-    blobs = [':fire_engine:', ':googlefire:', ':fire_extinguisher:', ':camera:', ':detective:', ':rage:']
+    blobs = [':fire_engine:', ':fire_extinguisher:', ':camera:', ':detective:', ':rage:']
     return random.choice(blobs)
 
 
@@ -29,11 +29,18 @@ class MyClient(discord.Client):
         print(self.user.id)
         print('---------------------------------')
 
+    async def sendR5(self,message):
+        f = discord.File("ourr5.jpg", filename="ourr5.jpg")
+        await message.channel.send(file=f)
+
     async def my(self, message, obj, printed):
-        findme = 'my\s' + obj
-        p = re.compile(findme, re.IGNORECASE)
+        findme = 'my\s\w?\s?' + obj
+        p = re.compile(findme, re.IGNORECASE | re.MULTILINE)
         if p.search(message.content):
-            await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
+            if printed == 'R5' and random.randint(0, 4) == 4:
+                self.sendR5(message)
+            else:
+                await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 
     async def on_message(self, message):
         # don't respond to ourselves
@@ -42,6 +49,7 @@ class MyClient(discord.Client):
 
         await self.my(message, 'R5', 'R5')
         await self.my(message, 'R6', 'R6')
+        await self.my(message, 'C70', 'C70')
         await self.my(message, '70-135', '70-135mm')
 
 if __name__ == "__main__":

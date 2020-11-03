@@ -34,7 +34,7 @@ class MyClient(discord.Client):
         await message.channel.send(file=f)
 
     async def my(self, message, obj, printed):
-        findme = 'y\s\w*\s?' + obj
+        findme = 'my\s(\S*\s)?' + obj
         p = re.compile(findme, re.IGNORECASE | re.MULTILINE)
         if p.search(message.content):
             if printed == 'R5' and random.randint(0, 4) == 4:

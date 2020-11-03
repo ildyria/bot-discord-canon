@@ -31,7 +31,7 @@ class MyClient(discord.Client):
 
     async def my(self, message, obj, printed):
         p = re.compile('my\s' + obj, re.IGNORECASE)
-        if p.match(message):
+        if p.match(message.content):
             await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 
     async def on_message(self, message):

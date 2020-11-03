@@ -38,7 +38,7 @@ class MyClient(discord.Client):
         p = re.compile(findme, re.IGNORECASE | re.MULTILINE)
         if p.search(message.content):
             if printed == 'R5' and random.randint(0, 4) == 4:
-                self.sendR5(message)
+                await self.sendR5(message)
             else:
                 await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 

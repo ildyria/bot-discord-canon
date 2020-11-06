@@ -3,6 +3,7 @@ import asyncio
 import os.path
 import random
 import re
+import time
 
 async def print_sad(message):
     await message.channel.send(':disappointed_relieved:')
@@ -12,6 +13,31 @@ def rdm_blob():
     # blobs = [':blobcool:', ':blobaww:',':blobfistbumpR:',':blobmoustache:',':blobsmileopenmouth:',':blobpoliceangry:',':blobhammer:',':fire_engine:', ':googlefire:']
     blobs = [':fire_engine:', ':fire_extinguisher:', ':camera:', ':detective:', ':rage:']
     return random.choice(blobs)
+
+def rdm_8():
+    responses = [
+        "It is certain",
+        "Without a doubt",
+        "You may rely on it",
+        "Yes definitely",
+        "It is decidedly so",
+        "As I see it, yes",
+        "Most likely",
+        "Yes",
+        "Outlook good",
+        "Signs point to yes",
+        "Reply hazy try again",
+        "Better not tell you now",
+        "Ask again later",
+        "Cannot predict now",
+        "Concentrate and ask again",
+        "Don't count on it",
+        "Outlook not so good",
+        "My sources say no",
+        "Very doubtful",
+        "My reply is no"
+    ]
+    return random.choice(responses)
 
 
 class MyClient(discord.Client):
@@ -42,6 +68,14 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 
+    async def question8(self, message):
+        if message.content.startswith('?'):
+            # await message.channel.send(rdm_8())
+            await message.add_reaction(':8ball:')
+            time.sleep(3)
+            await message.channel.send(rdm_8())
+
+
     async def on_message(self, message):
         # don't respond to ourselves
         if message.author == self.user:
@@ -51,6 +85,8 @@ class MyClient(discord.Client):
         await self.my(message, 'R6', 'R6')
         await self.my(message, 'C70', 'C70')
         await self.my(message, '70-135', '70-135mm')
+        await self.question8(message)
+
 
 if __name__ == "__main__":
     with open('.key', 'r', encoding="utf-8") as file:

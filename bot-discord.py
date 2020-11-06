@@ -71,7 +71,7 @@ class MyClient(discord.Client):
     async def question8(self, message):
         if message.content.startswith('?'):
             # await message.channel.send(rdm_8())
-            await message.add_reaction(':8ball:')
+            await message.add_reaction('🎱')
             time.sleep(3)
             await message.channel.send(rdm_8())
 

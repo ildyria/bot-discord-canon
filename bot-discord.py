@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+ 
 import discord
 import asyncio
 import os.path

@@ -70,12 +70,12 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 
-    async def question8(self, message):
-        if message.content.startswith('?'):
-            # await message.channel.send(rdm_8())
-            await message.add_reaction('🎱')
-            time.sleep(3)
-            await message.channel.send(rdm_8())
+    # async def question8(self, message):
+    #     if message.content.startswith('?'):
+    #         # await message.channel.send(rdm_8())
+    #         await message.add_reaction('🎱')
+    #         time.sleep(3)
+    #         await message.channel.send(rdm_8())
 
 
     async def on_message(self, message):
@@ -87,7 +87,7 @@ class MyClient(discord.Client):
         await self.my(message, 'R6', 'R6')
         await self.my(message, 'C70', 'C70')
         await self.my(message, '70-135', '70-135mm')
-        await self.question8(message)
+        # await self.question8(message)
 
 
 if __name__ == "__main__":

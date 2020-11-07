@@ -1,5 +1,5 @@
 #!/usr/bin/python3
- 
+
 import discord
 import asyncio
 import os.path
@@ -43,7 +43,7 @@ def rdm_8():
 
 
 class MyClient(discord.Client):
-    
+
     async def error(self, message, comment):
         default_channel, control_channel = self.get_channels()
         await message.remove_reaction('✅', self.user)
@@ -84,6 +84,7 @@ class MyClient(discord.Client):
             return
 
         await self.my(message, 'R5', 'R5')
+        await self.my(message, ':eosr5:', 'R5')
         await self.my(message, 'R6', 'R6')
         await self.my(message, 'C70', 'C70')
         await self.my(message, '70-135', '70-135mm')

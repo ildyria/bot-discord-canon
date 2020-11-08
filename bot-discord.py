@@ -70,15 +70,15 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send(message.author.mention + ", it's **OUR " + printed + "**! " + rdm_blob())
 
-    async def question8(self, message):
-        if message.content.startswith('?'):
-            # await message.channel.send(rdm_8())
-            await message.add_reaction('🎱')
-            time.sleep(3)
-            goto_channel = self.get_channel(id=int('742559219718553630'))
-            # '742559219718553630' : #🔗-share-links-and-such
-            # '743612498401558689' : #📶-off-topic
-            await goto_channel.send("> " + message.content[1:] + "\n" + message.author.mention + ": " + rdm_8())
+    # async def question8(self, message):
+    #     if message.content.startswith('?'):
+    #         # await message.channel.send(rdm_8())
+    #         await message.add_reaction('🎱')
+    #         time.sleep(3)
+    #         goto_channel = self.get_channel(id=int('742559219718553630'))
+    #         # '742559219718553630' : #🔗-share-links-and-such
+    #         # '743612498401558689' : #📶-off-topic
+    #         await goto_channel.send("> " + message.content[1:] + "\n" + message.author.mention + ": " + rdm_8())
 
 
     async def on_message(self, message):
